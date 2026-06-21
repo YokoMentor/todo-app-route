@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-bg-dark: hsl(235, 21%, 11%);
+  --color-bg-light: hsl(0, 0%, 98%);
+  --color-container-dark: hsl(235, 24%, 19%);
+  --color-container-light: hsl(0, 0%, 100%);
+  --color-primary-purple: hsl(233, 14%, 35%);
+  --color-primary-grey: hsl(234, 39%, 85%);
+  --color-txt-light: hsl(240, 4.2%, 62.4%);
+  --color-txt-dark: hsl(235, 16%, 43%);
+  --color-txt-hover: hsl(236, 33%, 92%);
+  --color-txt-active: hsl(220, 98%, 61%);
+  --color-checkbox-hover: hsl(248, 37%, 62%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

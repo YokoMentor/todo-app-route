@@ -1,0 +1,34 @@
+.bg_dark {
+  background-image: url('../public/bg-mobile-dark.jpg');
+}
+
+.bg_light {
+  background-image: url('../public/bg-mobile-light.jpg');
+}
+
+.icon_sun {
+  background-image: url('../public/icon-sun.svg');
+}
+
+.icon_moon {
+  background-image: url('../public/icon-moon.svg');
+}
+
+.icon_check {
+  background-image: url('../public/icon-check.svg'), linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+}
+
+.icon_cross {
+  background-image: url('../public/icon-cross.svg');
+}
+
+@media (min-width: 768px) {
+  .bg_dark {
+    background-image: url('../public/bg-desktop-dark.jpg');
+  }
+
+  .bg_light {
+    background-image: url('../public/bg-desktop-light.jpg');
+  }
+}
