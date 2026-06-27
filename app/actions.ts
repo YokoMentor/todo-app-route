@@ -2,18 +2,15 @@ import { TodoList } from "./src/services/database";
 
 export const addToList = async (item: string) => {
   try {
-    const response = await fetch('/api/todo', {
+    const response = await fetch('http://localhost:3000/api/todo', {
       method: 'POST',
       body: JSON.stringify({item: item})
     });
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    const data = await response.json();
-    return data;
   } catch (error) {
     console.error('Fetch error:', error);
-    return [];
   }
 };
 
@@ -62,22 +59,22 @@ export const clearCompletedItems = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Fetch error:', error);
     return [];
   }
 };
 
 export const countItemsLeft = async () => {
   try {
-    const response = await fetch('/api/todo/count');
+    const response = await fetch('http://localhost:3000/api/todo/count');
     if (!response.ok) {
+      console.log(response)
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    return data;
+    return data.length;
   } catch (error) {
     console.error('Fetch error:', error);
-    return [];
+    return 0;
   }
 };
 
@@ -108,7 +105,6 @@ export const updateTodoItem = async (id: string, status: string) => {
     }
 
   } catch (error) {
-    console.error('Fetch error:', error);
     return [];
   }
 };
