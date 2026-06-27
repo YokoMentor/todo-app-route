@@ -1,3 +1,5 @@
+import { TodoList } from "./src/services/database";
+
 export const addToList = async (item: string) => {
   try {
     const response = await fetch('/api/todo', {
@@ -79,13 +81,37 @@ export const countItemsLeft = async () => {
   }
 };
 
-export const updateTodoItem = async(id: string, status: string) => {
-  if(status === 'Active') {
-    updateTodo(id, 'Completed')
-  } else {
-    updateTodo(id, 'Active')
+export const updateTodoItem = async (id: string, status: string) => {
+  try {
+    if (status === 'Active') {
+      const response = await fetch('/api/todo/update', {
+        method: 'POST',
+        body: JSON.stringify({ id: id, status: 'Completed' })
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data;
+    } else {
+      const response = await fetch('/api/todo/update', {
+        method: 'POST',
+        body: JSON.stringify({ id: id, status: 'Active' })
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data;
+    }
+
+  } catch (error) {
+    console.error('Fetch error:', error);
+    return [];
   }
-}
+};
 
 
 
